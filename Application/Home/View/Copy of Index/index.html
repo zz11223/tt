@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="keywords" content="{$keywords|default=''}">
+    <title>公众号服务平台</title>
+    <link href="__PUBLIC__/css/index.css" rel="stylesheet">
+    <LINK href="favicon.ico" type="image/x-icon" rel=icon>
+    <link href="__PUBLIC__/css/city_date.css" rel="stylesheet"/>
+    <style type="text/css">
+.style1 {
+	font-size: 12px;
+	color: #CCCCCC;
+}
+    </style>
+</head>
+<body>
+<div class="header" >
+    <div class="wrap" >
+        
+         <a href="{:U('/')}">
+            <div class="logo">
+                <img src="__PUBLIC__/img/logo.png" alt="公众服务平台">
+            </div>
+        </a>
+    </div>
+</div>
+<div class="main">
+    <div class="reg-form">
+        <div class="reg-header">
+            <ul class="processor_bar grid_line">
+                <li class="step grid_item size1of4 current"> <h4>1 选择类型</h4> </li>
+                <li class="step grid_item size1of4 next"> <h4>2 公众号信息</h4> </li>
+                <li class="step grid_item size1of4 nnext"> <h4>3 注册信息</h4> </li>
+                <li class="no_extra step grid_item size1of4 nnext"> <h4>4 登录公众号</h4> </li>
+            </ul>
+        </div>
+        <div class="reg-form-box">
+            <div class="reg-form-tab on" style="display:block;" id="reg_for1">
+                <div class="wx-type-tips">
+                    请选择微信公众号帐号类型
+                </div>
+                <div style="display:none">
+                    <input type="radio" name="public_number_type" value="1" id="creat_s1" class="radio_s">
+                    <input type="radio" name="public_number_type" value="2" id="creat_s2" class="radio_s">
+                </div>
+                <div class="wx-type">
+                    <div class="wx-type-list">
+                        <a href="{:U('step2',array('id'=>1))}">
+                            <ul class="wx-type-item">
+                                <li class="wx-type-title">
+                                    <img src="__PUBLIC__/img/dingyue.png">
+                                    订阅号
+                                </li>
+                                <li class="wx-type-desc">
+                                    <img src="__PUBLIC__/img/desc1.png" alt="为企业、媒体和个人提供一种新的信息宣传方式，达到宣传营销效果。">
+                                </li>
+                                <li class="wx-type-fit">
+                                    适用：个人、企业、组织、媒体
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">群发消息</span>
+                                    <span class="content">1条/天</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">消息显示位置</span>
+                                    <span class="content">订阅号列表</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">基础消息接口</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">自定义菜单</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">营销功能</span>
+                                </li>
+                                <li class="wx-type-more">
+                                    <span class="e_prove">了解详情</span>
+                                </li>
+                                <li class="wx-type-footer">
+                                    选择并继续
+                                    <img src="__PUBLIC__/img/type_more.png" alt=">">
+                                </li>
+                            </ul>
+                            </a>
+                    </div>
+                    <div class="wx-type-list">
+                        <a href="{:U('step2',array('id'=>2))}">
+                            <ul class="wx-type-item">
+                                <li class="wx-type-title">
+                                    <img src="__PUBLIC__/img/fuwu.png">
+                                    服务号
+                                </li>
+                                <li class="wx-type-desc">
+                                    <img src="__PUBLIC__/img/desc2.png" alt="给企业和组织提供更强大的业务服务与用户管理能力，帮助企业快速实现在线服务平台。">
+                                </li>
+                                <li class="wx-type-fit">
+                                    适用：企业、组织、媒体
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">群发消息</span>
+                                    <span class="content">4条/月</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">消息显示位置</span>
+                                    <span class="content">会话列表</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">基础消息接口</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">自定义菜单</span>
+                                </li>
+                                <li class="wx-type-sub">
+                                    <span class="title">营销功能</span>
+                                </li>
+                                <li class="wx-type-more">
+                                   <span class="e_prove">了解详情</span>
+                                </li>
+                                <li class="wx-type-footer">
+                                    选择并继续
+                                    <img src="__PUBLIC__/img/type_more.png" alt=">">
+                                </li>
+                            </ul>
+                            </a>
+                    </div>
+                </div>
+            </div>   
+ 
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div><font face="Arial">&copy;</font> 2000 - 2019 公众号服务 —— All Right Reserved.</div>
+</div>
+<div id="footerTxt" style="display: none">
+</div>
+<div align="center">
+  <p align="center"><span class="style1">山西惠通达汽贸有限公司</span></p>
+  
+</div>
+</body>
+</html>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script>
+console.log(decodeURIComponent('%C8%E7%BA%CE%BF%AA%CD%A8%B8%F6%C8%CB%B5%C4%CE%A2%D0%C5%B9%AB%D6%DA%BA%C5'));
+$(".e_prove").click(function(e){
+    e.stopPropagation();
+})
+$(".wx-type-list").click(function(){
+    var sum=$(this).index();
+    $($(".radio_s")[sum]).click();
+});
+</script>
+ <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0e5fb581e028583d84b3cf2aaab89db2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+  </script>

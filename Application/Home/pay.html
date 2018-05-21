@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>支付中心</title>
+<link href="__PUBLIC__/css/pay.css" rel="stylesheet" type="text/css">
+<style>
+ img{border-style:none; }
+</style>
+        <script src="__PUBLIC__/js/jquery.min.js"></script>
+      <script type="text/javascript">
+
+        function Malert(content) {
+
+            $("#_alert_content").text(content);
+
+            $("#_alert_bg").show();
+
+            $("#_alert_content").show();
+
+        }
+
+        $("document").ready(function () {
+
+            $("#_alert_bg").click(function () {
+
+                $("#_alert_bg").hide();
+
+                $("#_alert_content").hide();
+
+            });
+
+            $(".sku_ul a").click(function () {
+
+                var o = $(this);
+
+                if (!o.hasClass("sku_cur")) {
+
+                    $(".sku_cur").removeClass("sku_cur");
+
+                    o.addClass("sku_cur");
+
+                    $("#item_num").val(1);
+
+                    $("#wfpricetemp").val(o.attr("data-price"));
+
+                    $("#wfprice").val(o.attr("data-price"));
+
+                    $("#showprice").html(o.attr("data-price"));
+
+                    $("#wfproduct").val(o.attr("data-sku"));
+
+                    $("#showproduct").html(o.attr("data-sku"));
+
+                }
+
+            });
+
+            $(".sku_ul_pay a").click(function () {
+
+                var o = $(this);
+
+                if (!o.hasClass("skupay_cur")) {
+
+                    $(".skupay_cur").removeClass("skupay_cur");
+
+                    o.addClass("skupay_cur");
+
+                    $("#wfpay").val(o.attr("data-pay"));
+
+                }
+
+            });
+
+        });
+
+        function numAdd(){
+
+          var num_add = parseInt($("#item_num").val())+1;
+
+          if($("#item_num").val()==""){
+
+             num_add = 1;
+
+         }
+
+         $("#item_num").val(num_add);
+
+         var total = parseFloat($("#wfpricetemp").val())*parseInt($("#item_num").val());
+
+         $("#showprice").html(total.toFixed(2));
+
+         $("#wfprice").val(total.toFixed(2));
+
+     }
+
+     function numDec(){
+
+      var num_dec = parseInt($("#item_num").val())-1;
+
+      if(num_dec<1){
+
+         alert("数量不能小于1件！");
+
+     }else{
+
+         $("#item_num").val(num_dec);
+
+         var total = parseFloat($("#wfpricetemp").val())*parseInt($("#item_num").val());
+
+         $("#showprice").html(total.toFixed(2));
+
+         $("#wfprice").val(total.toFixed(2));
+
+     }
+
+ }
+
+ function wftgp2(zk){
+
+  $("#wfform").attr("target", "_parent");
+
+  try{var wfprice=$("#wfprice").val()*zk;$("#showprice").html(wfprice.toFixed(2));}catch(ex){}
+
+}
+
+function wftgb2(zk){
+
+  $("#wfform").attr("target", "_blank");
+
+  try{var wfprice=$("#wfprice").val()*zk;$("#showprice").html(wfprice.toFixed(2));}catch(ex){}
+
+}
+
+</script>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="wrap">
+        <div class="progress">
+            <img src="__PUBLIC__/img/bz.png" alt="">
+        </div>
+        <a href="javascript:void(0);" class="logo">
+            <img src="__PUBLIC__/img/play_logo.gif" alt="支付中心">
+        </a>
+    </div>
+</div>
+
+<div class="main wrap">
+
+    <div class="module">
+        <div class="row type-wrap">
+            <div class="row-title">请选择类型</div>
+            <div class="row-content">
+                <div class="type-list on" data-type="1" data-price="300.00">
+                    <span class="type-list-title">订阅号+营销功能模块</span>
+                    <img src="__PUBLIC__/img/hot.gif" alt="hot">
+                </div>
+                <div class="type-list" data-type="2" data-price="300.00">
+                    <span class="type-list-title">服务号+营销功能模块</span>
+                    <img src="__PUBLIC__/img/hot.gif" alt="hot">
+                </div>
+                <div class="type-list" data-type="3" data-price="400.00">
+                    <span class="type-list-title">双号+营销功能模块</span>
+                    <img src="__PUBLIC__/img/hot.gif" alt="hot">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-title">区别和介绍</div>
+        </div>
+        <div class="row">
+            <div class="row-desc">
+                1、订阅号：个人、企业、单位都可以建设；服务号：需要企业营业执照。<br>
+                2、订阅号侧重宣传推广，服务号侧重在线交易支付, 订阅号每天都可以群发1条信息; 服务号一个月只能群发4条信息。<br>
+                3、双号：就是 订阅号+服务号, 为您同时分别开通订阅号和服务号，双号运营，更适合公众号营销。<br>
+                4、营销功能包含：群发功能、粉丝管理、公众号自动回复（文字、语音、图文）、自定义导航菜单、微社区、微相册、微投票、留言板、带参数二维码等功能。<br>
+                5、所有类型公众号都是一次付费永久使用，费用包含：开通公众号、提供公众号操作使用教程、公众号营销教程、公众号推广教程、公众号编辑器和在线客服使用指导服务。
+            </div>
+        </div>
+        <div class="price">
+            ￥ <span id="price">300.00</span>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="row">
+            <div class="row-title">公众号信息</div>
+            <div class="row-content">
+                <div class="btn-qq-wrap">
+                    联系客服：
+                    <span class="btn-qq" id="btnQQ"  >
+                       <a href='http://wpa.qq.com/msgrd?v=3&amp;uin=2851670321&amp;site=qq&amp;menu=yes' target="_blank"> 
+                       <img src="__PUBLIC__/img/qq.gif" alt="qq">
+                       </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="row-info">
+                <div class="info-list">
+                    注册类型：
+                    <span id="typeName">订阅号+营销功能模块</span>
+                </div>
+                <div class="info-list">
+                    公众账号名称：
+                    <span id="register">{$v.wfproductb}</span>
+                </div>
+                <div class="info-list">
+                    姓名：
+                    <span id="wxname">{$v.wfname}</span>
+                </div>
+                <div class="info-list">
+                    手机号码：
+                    <span id="phone">{$v.wfmob}</span>
+                </div>
+                <div class="info-list">
+                    联系QQ：
+                    <span id="wfqq">{$v.wfqq}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="info-tips">亲：只差一步啦！支付完成后，工作人员将帮您建设公众号，并享受专业客服一对一指导和对接营销功能服务</div>
+        <div class="info-tips red">付款后工作人员会在一个小时内联系您的QQ/邮箱或者手机，确认资料并建设公众号，以及提供后期服务</div>
+    </div>
+  
+                <form  method="post" onsubmit="return wfpostcheck()"  id="wfform" name="wfform" action="{:U('Pay/createPay')}"  target="_blank">
+                  <input type="hidden" name="wfrnmb" value="8b8eb5cde0acacfe9b56616dc4f2d073">
+            <input type="hidden" name="WFLLURL" id="WFLLURL" value="">
+            <input type="hidden" name="WFDDURL" id="WFDDURL" value="">
+            
+            <input type="hidden" name="wfproname" id="wfproname" value="公众号营销平台">
+            
+            <input type="hidden" id="item_num" name="wfmun" value="1">
+          
+                    <input type="hidden" name="order_sn" value="{$v.order_sn}">
+                    <input type="hidden" name="id" value="{$v.id}">
+            <input type="hidden" name="wftempid" value="10000">
+            <input type="hidden" name="wfismob" value="">
+           
+           <input type="hidden" name="wfwxpaytype" value="native">            
+            <input type="hidden" id="wfpay" name="wfpay" value="{$curpay}">
+          <input type="hidden" id="wfproduct" name="wfproduct" value="订阅号+营销功能模块">  
+        <input name='wfprice' type='hidden' value="300"/>
+    <div class="module">
+        <div class="pay-wrapper" id="payWrapper">
+        <ul class="sku_ul_pay">
+               
+                        <li><a href="javascript:void(0);" onClick="wftgb2(1)" class="{$curpay=='wxnative'?'skupay_cur':''}" data-pay="wxnative"><img src="__PUBLIC__/img/fkd.gif" disabled></a></li>
+                  
+                  
+                        <li><a href="javascript:void(0);" onClick="wftgb2(1)" class="{$curpay=='alipc'?'skupay_cur':''}" data-pay="alipc"><img src="__PUBLIC__/img/fkb.gif" disabled></a></li>
+                  
+
+                </ul>
+        </div>
+        <style>
+		.pay-submit button{    display: inline-block;
+    width: 156px;
+    color: #fff;
+   border:none;
+   cursor:pointer;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+    background: #229d09;}
+		</style>
+        <div class="pay-submit">
+            <a href="javascript:;" class="pay-submit-btn">
+          
+
+        
+        <button>前往支付 </button>
+   
+
+            
+            </a>
+            <a href="/" class="pay-submit-back">返回修改资料</a>
+
+        </div>
+    </div>
+ </form>
+    <div class="footer">
+        <img src="__PUBLIC__/img/play_footer.jpg" alt="">
+    </div>
+
+</div>
+
+    <style type="text/css">
+        /*popup*/
+
+        .popup-layer {
+            display: none;
+            position: fixed;
+            margin-top: -60px;
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            width: 400px;
+            height: 200px;
+            z-index: 1000;
+        }
+
+        .popup-layer .popup-layer-box {
+            width: 400px;
+            height: 200px;
+            background-image: url(ys/images/img/popup-layer-pay.png);
+            box-shadow: 1px 2px 8px rgba(0, 0, 0, .4)
+        }
+
+        .popup-layer .popup-close {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 2px;
+            top: 2px;
+            cursor: pointer;
+        }
+
+        .popup-layer .popup-btn-a, .popup-layer .popup-btn-b {
+            position: absolute;
+            width: 102px;
+            height: 32px;
+            bottom: 22px;
+            cursor: pointer;
+        }
+
+        .popup-layer .popup-btn-a {
+            left: 74px;
+        }
+
+        .popup-layer .popup-btn-b {
+            left: 229px;
+        }
+
+        .popup-layer .popup-tips {
+            position: absolute;
+            top: 113px;
+            padding: 0 10px;
+            color: red;
+            font-size: 13px;
+        }
+
+        .popup-layer .popup-phone {
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+            font-size: 12px;
+            color: #999;
+        }
+
+    </style>
+    <div id="popup-layer" class="popup-layer">
+        <div class="popup-layer-box">
+            <div class="popup-close"></div>
+            <a id="qq_opend" class="popup-btn-a" data-wmdot="tap" data-wmdot-id="consult"></a>
+            <a id="qq_opend2" class="popup-btn-b" data-wmdot="tap" data-wmdot-id="consult"></a>
+        </div>
+        <div class="popup-phone"><span class="phone-num"></span></div>
+    </div>
+
+
+
+
+
+    <script>
+  
+
+      var tipsTimer = setInterval(function () {
+        alert('您好，订单支付时间剩余5分钟！')
+      }, 5 * 60000)
+
+
+  
+
+        $('.type-list').on('click', function () {
+          var $this = $(this)
+          iClass = $this.attr('data-type')
+          sPrice = $this.attr('data-price')
+          $this.addClass('on')
+            .siblings().removeClass('on')
+          $('#price').html(sPrice)
+		  $("input[name='wfprice']").val(sPrice)
+          $('#typeName').text($this.text())
+		  $("#wfproduct").val(iGetInnerText($this.text()))
+		  
+        });
+		
+		function iGetInnerText(testStr) {
+        var resultStr = testStr.replace(/\ +/g, ""); //去掉空格
+        resultStr = testStr.replace(/[ ]/g, "");    //去掉空格
+		
+		resultStr = testStr.replace(/\ +/g,"");   
+
+        resultStr = testStr.replace(/[\r\n]/g, ""); //去掉回车换行
+        return resultStr;
+    }
+
+    function set_cookie(name,value){ 
+   		document.cookie = name + "="+ escape (value);
+   	}
+   	$('.logo').click(function(){
+   		set_cookie('ldzd_step',1);
+   		location.href='/';
+   	});
+
+
+    </script>
+
+</body>
+</html>

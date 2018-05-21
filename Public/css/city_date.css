@@ -1,0 +1,47 @@
+
+#super_citys{
+    display: inline-block;
+    position: relative;
+}
+#super_citys>div{
+    border:1px solid #ccc;
+    height:33px;
+    width:150px;
+    display:inline-block;
+    vertical-align: top;
+    text-indent: 10px;
+    position:relative;
+    cursor:pointer;
+    border-radius: 5px;
+    background:url(../img/select_bg_img.png) no-repeat right center;
+}
+#super_citys>div>div{
+    overflow: hidden;
+    padding-right:24px;
+    font-size:13px;
+}
+.shadow{
+    border:1.5px solid #1E90FF!important;
+}
+#super_citys>div>ul{
+    width:100%;
+    border:2px solid #1E90FF!important;
+    position:absolute;
+    left:0;
+    z-index: 99;
+    overflow-y: scroll;
+    height:0px;
+    display:none;
+    box-sizing: border-box;
+    background:#fff;
+}
+#super_citys>div>ul>li{
+    font-size:15px;
+    text-indent: 10px;
+    cursor:pointer;
+    overflow: hidden;
+}
+#super_citys>div>ul>li:hover{
+    background:#1E90FF;
+    color:#fff;
+}

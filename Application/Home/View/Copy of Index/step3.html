@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>公众服务平台</title>
+<link href="__PUBLIC__/css/bootstrap.min.css" rel="stylesheet" />
+<link href="__PUBLIC__/css/index.css" rel="stylesheet" />
+<link href="__PUBLIC__/css/city_date.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="header">
+		<div class="wrap">
+			<a href="{:U('/')}">
+				<div class="logo">
+					<img src="__PUBLIC__/img/logo.png" alt="公众服务平台" />
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="main">
+		<div class="reg-form">
+			<div class="reg-header">
+				<ul class="processor_bar grid_line">
+					<li class="step grid_item size1of4 "><h4>1 选择类型</h4></li>
+					<li class="step grid_item size1of4 prev"><h4>2 信息</h4></li>
+					<li class="step grid_item size1of4 current"><h4>3 注册信息</h4></li>
+					<li class="no_extra step grid_item size1of4 next"><h4>4
+							登录</h4></li>
+				</ul>
+			</div>
+			<div class="reg-form-box">
+				<div class="reg-form-tab on">
+					<div class="tab-content big">
+						<form id="formToSubmit" action="{:U('Index/index_do')}"
+							method="post">
+							<input type="hidden" name="wfproductb"
+								value="{$v['wfproductb']|default=''}"> <input
+								type="hidden" name="wfguest" value="{$v['wfguest']|default=''}">
+							<input type="hidden" name="id" value="{$v['id']|default=''}">
+							<input type="hidden" name="order_sn"
+								value="{$v['order_sn']|default=''}">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">地区</label>
+								<div class="col-sm-9">
+									<div id="distpicker" class="distpicker" style="border: none">
+										<div style="position: relative;">
+											<div id="cityPicker">
+												<div id="super_citys">
+													<div class="provinces">
+														<input class="input1" type="hidden"
+															value="{$v['city1']|default='0'}" name="province">
+														<input class="input2" type="hidden"
+															value="{$v['city1_name']|default='0'}"
+															name="province_name">
+														<div>请选择省份</div>
+														<ul class="shadow_ul">
+															<li><input type="hidden" value="0"><span>请选择省份</span></li>
+														</ul>
+													</div>
+													<div class="city">
+														<input class="input1" type="hidden"
+															value="{$v['city2']|default='0'}" name="city"> <input
+															class="input2" type="hidden"
+															value="{$v['city2_name']|default='0'}" name="city_name">
+														<div>请选择城市</div>
+														<ul>
+															<li><input type="hidden" value="0"><span>请选择城市</span></li>
+														</ul>
+													</div>
+													<div class="area">
+														<input class="input1" type="hidden"
+															value="{$v['city3']|default='0'}" name="district">
+														<input class="input2" type="hidden"
+															value="{$v['city3_name']|default='0'}"
+															name="district_name">
+														<div>请选择地区</div>
+														<ul>
+															<li><input type="hidden" value="0"><span>请选择地区</span></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="wxname" class="col-sm-3 control-label">申请人姓名</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="wxname"
+										name="wxname" value="{$v.wfname|default=''}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="phone" class="col-sm-3 control-label">手机号码</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="phone" name="phone"
+										value="{$v.wfmob|default=''}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="wfqq" class="col-sm-3 control-label">QQ号码</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="wfqq" name="wfqq"
+										value="{$v.wfqq|default=''}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<div class="checkbox">
+										<label> <input class="ischeck" type="checkbox" checked>我已阅读并同意和遵守
+											<a href="{:U('Xieyi/index')}" target="_blank"
+											style="color: red;">《本站服务协议》</a>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-3 col-sm-9">
+									<button type="submit" id="nextStep1" class="btn-gongzhonghao"></button>
+									<a href="{:U('step2')}" id="prev_s">返回修改资料</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="tab-content min">
+						<div class="tab1-desc">
+							<p>再小的个体？也有自己的品牌</p>
+							<p>
+								营销功能（包含）:文章推送（文字、语音、视频、图文）、粉丝管理、群发功能、微信自动回复、客服功能、自定义导航菜单、微商城、微网站、微表单、微投票、抽奖、刮刮卡、会员卡、优惠券等营销功能。
+							</p>
+						</div>
+						<div class="contact">
+							<div class="contact-title">全国服务热线</div>
+							<div class="contact-phone">400-168-6801</div>
+							<div class="contact-time-box">
+								<span class="contact-time">周一至周日</span> <span
+									class="contact-time">9:00-12:00</span> <span
+									class="contact-time">14:00-18:30</span> <span
+									class="contact-time">20:00-23:00</span>
+							</div>
+							<div class="contact-qq">
+								<span class="qq-btn" id="btnQQ"
+									onclick="window.open('http://wpa.qq.com/msgrd?v=3&amp;uin=2851670321&amp;site=qq&amp;menu=yes')">
+									<img src="__PUBLIC__/img/button_qq.gif" alt="qq">
+								</span> <span class="qq-btn" id="btnQQ2"> <a
+									href='http://wpa.qq.com/msgrd?v=3&amp;uin=2851670321&amp;site=qq&amp;menu=yes'
+									target="_blank"> <img src="__PUBLIC__/img/button_qq.gif"
+										alt="qq">
+								</a>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div>
+			<font face="Arial">&copy;</font> 2000 - 2019 公众号服务 —— All Right
+			Reserved.
+		</div>
+	</div>
+	<div id="footerTxt" style="display: none"></div>
+</body>
+</html>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/city.js"></script>
+<script src="__PUBLIC__/js/city-index.js"></script>
+<script>
+var pres=parseInt("{$v.city1|default='0'}");
+ var pres_name="{$v.city1_name|default='0'}";
+ var citys=parseInt("{$v.city2|default='0'}");
+ var citys_name="{$v.city2_name|default='0'}";
+ var areas=parseInt("{$v.city3|default='0'}");
+ var areas_name="{$v.city3_name|default='0'}";
+ if(pres>0){
+     var sgy='<li><input type="hidden" value="0"><span>请选择城市</span></li>';
+     $("input[name='province']").val(pres);
+     $("input[name='province_name']").val(pres_name);
+     $(".provinces>div").html(pres_name);
+     for_in_shi(sgy,pres);
+	 if(citys>0){
+	     var hgy='<li><input type="hidden" value="0"><span>请选择地区</span></li>';
+	     $("input[name='city']").val(pres);
+	     $("input[name='city_name']").val(citys_name);
+	     $(".city>div").html(citys_name);
+	     for_in_qu(hgy,citys);
+	 }
+	 if(areas>0){
+	     $("input[name='district']").val(areas);
+	     $("input[name='district_name']").val(areas_name);
+	     $(".area>div").html(areas_name);
+	 }
+ }
+  //下一步（1）
+  $('#formToSubmit').submit( function () {
+    var wxname = $('#wxname').val(),
+        phone = $('#phone').val(),
+        wfqq = $('#wfqq').val(),
+        reg = /^1[0-9]{10}$/;
+    if (!wxname) {
+      alert('姓名不能为空！');
+      return false;
+    }
+    if (!reg.test(phone)) {
+      alert('请填写正确手机号码！');
+      return false;
+    }
+    if (!wfqq) {
+      alert('QQ不能为空！');
+      return false;
+    }
+    if(!$(".ischeck").prop("checked")){
+      alert("请阅读本站协议");
+      return false;
+    }
+      return true;
+});
+</script>
