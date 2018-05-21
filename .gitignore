@@ -1,8 +1,0 @@
-.buildpath
-.DS_Store
-.project
-.settings
-/data/
-!/data/pay.html
-!/data/runtime/index.html
-.idea
