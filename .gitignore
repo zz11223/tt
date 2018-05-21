@@ -3,6 +3,6 @@
 .project
 .settings
 /data/
-!/data/index.html
+!/data/pay.html
 !/data/runtime/index.html
 .idea
